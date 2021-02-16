@@ -53,19 +53,12 @@ public class Chain {
         } 
         return 0; 
     }
-	public int pop() 
+	
+	public void empthyChain() 
     { 
-        Node temp = head; 
-        if(isEmpthy())
-        {
-        	return 0;
-        }
-        else {
-        	int first=peek();
-        	temp=temp.next;
-        	return first;
-        }
+        head=null;
     }
+	
 	public boolean isEmpthy() 
     { 
         Node temp = head; 
@@ -89,6 +82,7 @@ public class Chain {
 		list.printList();
 		System.out.println("empthy is "+list.isEmpthy());
 		System.out.println("peek is "+list.peek());
-		System.out.println("pop is "+list.pop());
+		list.empthyChain();
+		System.out.println("chain is empty now");
 	}
 }

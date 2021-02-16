@@ -6,15 +6,18 @@ public class main {
 	
 	public void printManual()
 	{
-		System.out.println("-------------------------------");
-		System.out.println("Та даараах үйлдэлийг хийж болно.\n "
-				+ "Тухйан үйлдлийг хийхэд та харгалзсан утгийг оруулна уу");
-		System.out.println("-------Хийх үйлдэл----------Орох утга-------");
-		System.out.println("---Гинжинд утга нэмэх-----------1-------");
-		System.out.println("Гинжиндэх бүх утгийг хэвлэх-----2-------");
-		System.out.println("Гинжиндэх эхний утгийг хасах----3-------");
-		System.out.println("Гинжиндэх эхний утгийг хэвлэх---4-------");
-		System.out.println("Гинжийн уртийг хэвлэх хэвлэх----5-------");
+		System.out.println("------------------------------------------------------");
+		System.out.println("-------------Action-------------------value-------");
+		System.out.println("------Add new value to chain------------1-------");
+		System.out.println("-------Print all value on chain---------2-------");
+		System.out.println("-------Delete chain---------------------3-------");
+		System.out.println("----------See first value---------------4-------");
+		System.out.println("----------get sizeof chain -------------5-------");
+		System.out.println("--------check chain is empthy-----------6-------");
+		System.out.println("--------------------------------------");
+		System.out.println("--------See manual -----------#-------");
+		System.out.println("--------------------------------------");
+		System.out.println("------------------------------------------------------");
 	}
 
 	public static void main(String[] args) {
@@ -25,7 +28,7 @@ public class main {
 		call.printManual();
 		while(true)
 		{
-			System.out.println("Хийх үйлдэл харгалзсан утгийг оруулна уу");
+			System.out.println("please enther ");
 			String step = scan.nextLine();
 			switch (step) {
 			  case "1":
@@ -37,18 +40,19 @@ public class main {
 				  callFunc.printList();
 			    break;
 			  case "3":
-				  System.out.println("Tuesday "+callFunc.pop());
+				  callFunc.empthyChain();
+				  System.out.println("chain now empthy");
 			    break;
 			  case "4":
-				  System.out.println("Tuesday "+callFunc.peek());
+				  System.out.println("first value - "+callFunc.peek());
 			    break;
 			  case "5":
-			    System.out.println("Friday"+callFunc.getCount());
+			    System.out.println("Size of chain - "+callFunc.getCount());
 			    break;
 			  case "6":
 				    if(callFunc.isEmpthy())
-				    	 System.out.println("Friday");
-				    else  System.out.println("Friday");
+				    	 System.out.println("It's empthy");
+				    else  System.out.println("it's not empthy");
 				    break;
 			  case "#":
 				 call.printManual();
