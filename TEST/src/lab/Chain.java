@@ -1,25 +1,30 @@
 package lab;
 
-public class Chain {
+public class Chain<T> {
+	
+	T obj; 
+	Chain(T obj) {  this.obj = obj;  } 
+    public T getObject()  { return this.obj; } 
+	
 	Node head;
 	
 	static class Node { 
-        int data; 
+        Chain<Integer> data; 
         Node next; 
-        Node(int d) 
+        Node(Chain<Integer> obj) 
         { 
-            data = d; 
+            data = obj; 
             next = null; 
         }
     }
 	
-	public void push(int new_data) 
+	public void push(Chain<Integer> obj) 
 	{ 
-	    Node new_node = new Node(new_data); 
+	    Node new_node = new Node(obj); 
 	  
 	    new_node.next = head; 
 	  
-	    head = new_node; 
+	    head = new_node;
 	} 
 	
 	public void printList() 
@@ -49,7 +54,7 @@ public class Chain {
         Node temp = head; 
         while (temp != null) 
         { 
-        	return temp.data;
+        	//return temp.data;
         } 
         return 0; 
     }
@@ -71,18 +76,18 @@ public class Chain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Chain list=new Chain();
-		
-		list.push(1);
-		list.push(2);
-		list.push(3);
-		list.push(4);
+		Chain<Integer> list=new Chain<Integer>(123);
+		System.out.println(list.getObject());
+		list=new Chain<Integer>(12321);
+		list.push(list);
+		list=new Chain<Integer>(123879);
+		list.push(list);
 		
 		System.out.println("list is"+list.getCount());
 		list.printList();
-		System.out.println("empthy is "+list.isEmpthy());
-		System.out.println("peek is "+list.peek());
-		list.empthyChain();
-		System.out.println("chain is empty now");
+		//System.out.println("empthy is "+list.isEmpthy());
+		//System.out.println("peek is "+list.peek());
+		//list.empthyChain();
+		//System.out.println("chain is empty now");
 	}
 }

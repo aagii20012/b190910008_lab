@@ -1,6 +1,5 @@
 package lab;
 import java.util.*;
-import lab.Chain;
 
 public class main {
 	
@@ -23,7 +22,8 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		main call=new main();
-		Chain callFunc=new Chain();
+		//Chain callFunc=new Chain(null);
+		@SuppressWarnings("resource")
 		Scanner scan=new Scanner(System.in);
 		call.printManual();
 		while(true)
@@ -33,27 +33,27 @@ public class main {
 			switch (step) {
 			  case "1":
 			    System.out.println("Please enther value");
-			    int input = Integer.parseInt(scan.nextLine());
-			    callFunc.push(input);
+			    // input = Integer.parseInt(scan.nextLine());
+			    //callFunc.push(input);
 			    break;
 			  case "2":
-				  callFunc.printList();
+				  //callFunc.printList();
 			    break;
 			  case "3":
-				  callFunc.empthyChain();
+				  //callFunc.empthyChain();
 				  System.out.println("chain now empthy");
 			    break;
 			  case "4":
-				  System.out.println("first value - "+callFunc.peek());
+				  //System.out.println("first value - "+callFunc.peek());
 			    break;
 			  case "5":
-			    System.out.println("Size of chain - "+callFunc.getCount());
+			    //System.out.println("Size of chain - "+callFunc.getCount());
 			    break;
 			  case "6":
-				    if(callFunc.isEmpthy())
-				    	 System.out.println("It's empthy");
-				    else  System.out.println("it's not empthy");
-				    break;
+				    //if(callFunc.isEmpthy())
+				   // 	 System.out.println("It's empthy");
+				   // else  System.out.println("it's not empthy");
+				    //break;
 			  case "#":
 				 call.printManual();
 				 step="-";
@@ -63,6 +63,5 @@ public class main {
 				    break;
 			}
 		}
-
 	}
 }
