@@ -1,93 +1,118 @@
 package lab;
 
+
+
 public class Chain<T> {
+
+	private LinkedListNode<T> first = null;
+	int size = 0; 
 	
-	T obj; 
-	Chain(T obj) {  this.obj = obj;  } 
-    public T getObject()  { return this.obj; } 
+	public void insert(LinkedListNode<T> node) {
+		node.setNext(first);
+		first = node;
+	}
 	
-	Node head;
-	
-	static class Node { 
-        Chain<Integer> data; 
-        Node next; 
-        Node(Chain<Integer> obj) 
-        { 
-            data = obj; 
-            next = null; 
-        }
-    }
-	
-	public void push(Chain<Integer> obj) 
-	{ 
-	    Node new_node = new Node(obj); 
-	  
-	    new_node.next = head; 
-	  
-	    head = new_node;
-	} 
-	
-	public void printList() 
+	public boolean isEmpthy(LinkedListNode<T> node) 
     { 
-        Node tnode = head; 
-        while (tnode != null) 
-        { 
-            System.out.print(tnode.data+" "); 
-            tnode = tnode.next; 
-        } 
-        System.out.println(""); 
-    } 
-	
-	public int getCount() 
-	    { 
-	        Node temp = head; 
-	        int count = 0; 
-	        while (temp != null) 
-	        { 
-	            count++; 
-	            temp = temp.next; 
-	        } 
-	        return count; 
-	    }
-	public int peek() 
-    { 
-        Node temp = head; 
-        while (temp != null) 
-        { 
-        	//return temp.data;
-        } 
-        return 0; 
-    }
-	
-	public void empthyChain() 
-    { 
-        head=null;
-    }
-	
-	public boolean isEmpthy() 
-    { 
-        Node temp = head; 
-        if(temp!=null)
+        if(node.getValue()!=null)
         {
-        	return false;
-        }else return true;
+        	return true;
+        }else return false;
+    }
+	
+	public void remove(){
+		if(first.getNext()!=null)
+			first = first.getNext();
+		else first = null;
+	}
+
+	private void printList(LinkedListNode<T> node) {
+		System.out.print(node.getValue()+"-->");
+		if(node.getNext()!=null) printList(node.getNext());
+	}
+	
+	private void getSize(LinkedListNode<T> node) 
+    { 
+		if(node.getNext()!=null)
+		{
+			size++;
+			getSize(node.getNext());
+		}
+			
     }
 
+	public void print(){
+		System.out.println("Node-->");
+		printList(first);
+	}
+	
+	public void nodeSize() 
+	{
+		if(check())
+		{
+			System.out.println("Size of Node is empty");
+		}else {
+			size=0;
+			getSize(first);
+			System.out.println("Size of Node is"+size);
+		}
+	}
+	
+	public boolean check() 
+	{
+		
+		if(first==null)
+		{
+			System.out.println("Node is empty");
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void peek() 
+	{
+		if(check())
+		{
+			 System.out.println("first value is "+first.getValue());
+		} 
+	}
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Chain<Integer> list=new Chain<Integer>(123);
-		System.out.println(list.getObject());
-		list=new Chain<Integer>(12321);
-		list.push(list);
-		list=new Chain<Integer>(123879);
-		list.push(list);
-		
-		System.out.println("list is"+list.getCount());
-		list.printList();
-		//System.out.println("empthy is "+list.isEmpthy());
-		//System.out.println("peek is "+list.peek());
-		//list.empthyChain();
-		//System.out.println("chain is empty now");
+		Chain<String> list = new Chain<String>();
+		/*list.insert(new LinkedListNode<String>("1213"));
+		list.insert(new LinkedListNode<String>("123"));
+		list.insert(new LinkedListNode<String>("234"));
+		list.insert(new LinkedListNode<String>("354"));
+		list.print();
+		list.nodeSize();
+		System.out.println("After removing the head..");*/
+		if(list.check())
+		{
+			
+		}else System.out.println("Node is not empthy");
+	}
+
+}
+
+class LinkedListNode<T> {
+	private T value;
+	private LinkedListNode<T> next;
+
+	public LinkedListNode(T value) {
+		this.value = value;
+	}
+
+	public void setNext(LinkedListNode<T> next) {
+		this.next = next;
+	}
+
+	public LinkedListNode<T> getNext() {
+		return next;
+	}
+
+	public T getValue() {
+		return value;
 	}
 }
