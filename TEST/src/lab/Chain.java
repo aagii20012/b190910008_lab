@@ -12,14 +12,6 @@ public class Chain<T> {
 		first = node;
 	}
 	
-	public boolean isEmpthy(LinkedListNode<T> node) 
-    { 
-        if(node.getValue()!=null)
-        {
-        	return true;
-        }else return false;
-    }
-	
 	public void remove(){
 		if(first.getNext()!=null)
 			first = first.getNext();
@@ -52,7 +44,7 @@ public class Chain<T> {
 		{
 			System.out.println("Size of Node is empty");
 		}else {
-			size=0;
+			size=1;
 			getSize(first);
 			System.out.println("Size of Node is"+size);
 		}
@@ -81,13 +73,17 @@ public class Chain<T> {
 	
 	public static void main(String[] args) {
 		Chain<String> list = new Chain<String>();
-		/*list.insert(new LinkedListNode<String>("1213"));
+		list.insert(new LinkedListNode<String>("1213"));
 		list.insert(new LinkedListNode<String>("123"));
 		list.insert(new LinkedListNode<String>("234"));
 		list.insert(new LinkedListNode<String>("354"));
 		list.print();
+		System.out.println();
 		list.nodeSize();
-		System.out.println("After removing the head..");*/
+		System.out.println("After removing the head..");
+		list.remove();
+		list.print();
+		System.out.println();
 		if(list.check())
 		{
 			

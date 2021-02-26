@@ -61,6 +61,7 @@ public class main {
 				    System.out.println("wrong input");
 				    break;
 			}
+			scan.remove();
 		}
 	}
 }
